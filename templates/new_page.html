@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>New Page</title>
+  </head>
+  <body>
+    <h1>New Page</h1>
+    <!-- <a href="/">Back to index</a> -->
+    <!-- <br>
+    <br>
+    <img src="{{ url_for('video_feed') }}" width="640" height="480">
+    <br>
+    <br>
+    <form action="{{ url_for('index') }}">
+      <input type="submit" value="Stop">
+    </form> -->
+    <img src="{{ url_for('video_feed') }}" width="640" height="480" style="border:1px solid black;">
+    <br>
+    <button onclick="startCamera()">Start Camera</button>
+    <button onclick="stopCamera()">Stop Camera</button>
+    <script>
+        function startCamera() {
+            fetch('/start_camera')
+                .then(response => response.text())
+                .then(message => console.log(message));
+        }
+
+        function stopCamera() {
+            fetch('/stop_camera')
+                .then(response => response.text())
+                .then(message => console.log(message));
+        }
+    </script>
+  </body>
+  
+</html>

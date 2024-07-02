@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="themexriver">
+
+    <!-- Page Title -->
+    <title> Detection </title>
+
+    <!-- Favicon and Touch Icons -->
+    <link href="{{url_for('static', filename = 'images/favicon.png' )}}" rel="shortcut icon" type="image/png">
+    <link href="{{url_for('static', filename = 'images/apple-touch-icon.png' )}}" rel="apple-touch-icon">
+    <link href="{{url_for('static', filename = 'images/apple-touch-icon-72x72.png' )}}" rel="apple-touch-icon" sizes="72x72">
+    <link href="{{url_for('static', filename = 'images/apple-touch-icon-114x114.png' )}}" rel="apple-touch-icon" sizes="114x114">
+    <link href="{{url_for('static', filename = 'images/apple-touch-icon-144x144.png' )}}" rel="apple-touch-icon" sizes="144x144">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Icon fonts -->
+    <link href="{{url_for('static', filename = 'css/font-awesome.min.css' )}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'css/flaticon.css' )}}" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static', filename = 'css/bootstrap.min.css' )}}" rel="stylesheet">
+
+    <!-- Plugins for this template -->
+    <link href="{{url_for('static', filename = 'css/animate.css' )}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'css/owl.carousel.css' )}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'css/owl.theme.css' )}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'css/owl.transitions.css' )}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'css/slick.css' )}}" rel="stylesheet">
+    <link href="{{url_for('static', filename = 'css/slick-theme.css' )}}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/style.css' )}}">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <section class="app-landing-testimonials section-padding" id="reviews">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-md-8 col-md-offset-2">
+                        <div class="row app-landing-section-title">
+                            <span class="sub-heading">Camera With AI</span>
+                            <h2>Let's Start Detection</h2>
+                            <br>
+                            <img src="{{ url_for('video_feed') }}" width="640" height="480" style="border:1px solid black;">
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-success" onclick="startCamera()">Start Camera</button>
+                            <button type="button" class="btn btn-danger" onclick="stopCamera()">Stop Camera</button>
+                            <button type="button" class="btn btn-primary" onclick="home()">Home</button>
+                        </div> <!-- end section-title -->
+                        <!-- <button onclick="startCamera()">Start Camera</button>
+                        <button onclick="stopCamera()">Stop Camera</button> -->
+                    </div>
+                </div> <!-- end row -->
+            </div> <!-- end container -->
+        </section>
+    </div>
+    <!-- end of page-wrapper -->
+
+
+    <!-- All JavaScript files
+    ================================================== -->
+    <script>
+        function startCamera() {
+            fetch('/start_camera')
+                .then(response => response.text())
+                .then(message => console.log(message));
+        }
+
+        function stopCamera() {
+            fetch('/stop_camera')
+                .then(response => response.text())
+                .then(message => console.log(message));
+        }
+        function home(){
+            window.location.href ="/";
+        }
+    
+    </script>
+    <script src="{{url_for('static', filename = 'js/jquery.min.js' )}}"></script>
+    <script src="{{url_for('static', filename = 'js/bootstrap.min.js' )}}"></script>
+
+    <!-- Plugins for this template -->
+    <script src="{{url_for('static', filename = 'js/jquery-plugin-collection.js' )}}"></script>
+
+    <!-- Custom script for this template -->
+    <script src="{{url_for('static', filename = 'js/script.js' )}}"></script>
+</body>
+</html>
